@@ -41,13 +41,17 @@
         $obj.mask = $(this).find('.'+opt.classmask);
         $obj.title = $(this).find('.'+opt.classtitle).find("li");
         $obj.page = $(this).find('.'+opt.classpage).find("li");
-        
+
         opt.width = $(this).find('.'+opt.classcon).width();
         opt.len = $obj.page.length;
         
         $obj.mask.css({'opacity':opt.opacity});
         $obj.title.eq(0).addClass(opt.classcur);
         $obj.page.eq(0).addClass(opt.classcur);
+
+        if(opt.len == 1) {
+            return;
+        }
 
         var timer = setInterval(slide, opt.time);
 
